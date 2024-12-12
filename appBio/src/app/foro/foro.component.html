@@ -1,0 +1,65 @@
+<div class="container mt-4">
+  <!-- Formulario de consulta -->
+  <h2>Realiza tu consulta</h2>
+  <form class="mb-4" (ngSubmit)="enviarConsulta()">
+    <div class="form-group">
+      <label for="tituloConsulta">Comentario breve</label>
+      <input
+        type="text"
+        id="tituloConsulta"
+        class="form-control"
+        [(ngModel)]="tituloConsulta"
+        name="tituloConsulta"
+        placeholder="Escribe el título de tu consulta"
+        required
+      />
+    </div>
+    <div class="form-group">
+      <label for="descripcionConsulta">Escribe aquí tu consulta o problema</label>
+      <textarea
+        id="descripcionConsulta"
+        class="form-control"
+        rows="4"
+        [(ngModel)]="descripcionConsulta"
+        name="descripcionConsulta"
+        placeholder="Escribe tu consulta o problema"
+        required
+      ></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+
+  <!-- Respuestas -->
+  <h3>Respuestas</h3>
+  <div class="card mb-3" *ngFor="let respuesta of respuestas">
+    <div class="card-body">
+      <h5 class="card-title">Usuario: {{ respuesta.usuario }}</h5>
+      <p class="card-text">{{ respuesta.mensaje }}</p>
+      <div class="card mt-2" *ngFor="let respuestaAnidada of respuesta.respuestas">
+        <div class="card-body">
+          <h6>Respuesta ({{ respuestaAnidada.usuario }}):</h6>
+          <p>{{ respuestaAnidada.mensaje }}</p>
+        </div>
+      </div>
+      <button class="btn btn-link" (click)="responder(respuesta)">Responder</button>
+    </div>
+  </div>
+
+  <!-- Preguntas frecuentes -->
+  <h3>Preguntas frecuentes</h3>
+  <div class="card mb-3" *ngFor="let pregunta of preguntasFrecuentes">
+    <div class="card-body">
+      <h5 class="card-title">Usuario: {{ pregunta.usuario }}</h5>
+      <p class="card-text"><strong>Pregunta:</strong> {{ pregunta.pregunta }}</p>
+      <p><strong>Admin:</strong> {{ pregunta.respuesta }}</p>
+    </div>
+  </div>
+
+  <!-- Enlaces de navegación -->
+  <div class="mt-4">
+    <a routerLink="/clientes" class="btn btn-link">Ir a Clientes</a>
+    <a routerLink="/foro" class="btn btn-link">Ir al Foro</a>
+  </div>
+</div>
+
+
