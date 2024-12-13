@@ -2,33 +2,31 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'; // Importa FormsModule para formularios
+import { ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { ClienteDialogComponent } from './components/clientes/cliente-dialog/cliente-dialog.component';
 import { ConfirmDialogComponent } from './components/clientes/confirm-dialog/confirm-dialog.component';
-import { ForoComponent } from './foro/foro.component'; // Importa ForoComponent correctamente
+import { ForumComponent } from './forum/forum.component'; // Asegúrate de importar ForumComponent si lo estás utilizando
 
 @NgModule({
   declarations: [
     AppComponent,
-    ClientesComponent,
+    ClientesComponent, // Agrega estos componentes en 'declarations'
     ClienteDialogComponent,
     ConfirmDialogComponent,
-    ForoComponent // Declara ForoComponent aquí
+    ForumComponent  // Agrega ForumComponent si es necesario
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    FormsModule // Agrega FormsModule
+    ReactiveFormsModule // Agrega ReactiveFormsModule aquí
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-

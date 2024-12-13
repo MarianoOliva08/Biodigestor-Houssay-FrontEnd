@@ -1,0 +1,36 @@
+<div class="container">
+  <h1>Foro de Discusión</h1>
+
+  <form [formGroup]="formulario" (ngSubmit)="enviarPregunta()">
+    <div class="form-group">
+      <label for="titulo">Título</label>
+      <input id="titulo" formControlName="titulo" class="form-control" placeholder="Escribe el título de tu pregunta">
+    </div>
+    <div class="form-group">
+      <label for="pregunta">Pregunta</label>
+      <textarea id="pregunta" formControlName="pregunta" class="form-control" placeholder="Escribe tu pregunta aquí"></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+  </form>
+
+  <div class="preguntas-list">
+    <h2>Preguntas Recientes</h2>
+
+    <div *ngFor="let pregunta of preguntas" class="pregunta">
+      <h3>{{ pregunta.titulo }}</h3>
+      <p><strong>{{ pregunta.usuario }}:</strong> {{ pregunta.pregunta }}</p>
+
+      <div *ngFor="let respuesta of pregunta.respuestas" class="respuesta">
+        <p><strong>{{ respuesta.usuario }}:</strong> {{ respuesta.respuesta }}</p>
+      </div>
+
+      <form [formGroup]="formularioRespuesta" (ngSubmit)="enviarRespuesta(pregunta)">
+        <div class="form-group">
+          <label for="respuesta">Responder</label>
+          <textarea id="respuesta" formControlName="respuesta" class="form-control" placeholder="Escribe tu respuesta aquí"></textarea>
+        </div>
+        <button type="submit" class="btn btn-secondary">Enviar Respuesta</button>
+      </form>
+    </div>
+  </div>
+</div>
