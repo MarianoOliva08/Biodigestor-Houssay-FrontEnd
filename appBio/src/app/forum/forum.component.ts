@@ -8,7 +8,7 @@ import { AuthService } from '../servicios/auth.service';
 interface Pregunta {
   titulo: string;
   pregunta: string;
-  respuestas: { usuario: string; respuesta: string }[];
+  respuestas: { usuario: string; respuesta: string; destacada?: boolean }[];
   usuario: string;
 }
 
@@ -24,9 +24,10 @@ export class ForumComponent implements OnInit {
   formularioRespuesta: FormGroup;
   preguntas: Pregunta[] = [];
   currentUser: string = 'Anónimo';
+  isAdmin: boolean = false; // Simula si el usuario es administrador
 
   constructor(
-    private fb: FormBuilder, 
+    private fb: FormBuilder,
     private router: Router,
     private authService: AuthService
   ) {
@@ -44,6 +45,7 @@ export class ForumComponent implements OnInit {
     const userInfo = this.authService.getUserInfo();
     if (userInfo && userInfo.username) {
       this.currentUser = userInfo.username;
+      this.isAdmin = userInfo.role === 'admin'; // Simula que el rol es "admin"
     }
   }
 
@@ -65,14 +67,19 @@ export class ForumComponent implements OnInit {
   enviarRespuesta(pregunta: Pregunta) {
     if (this.formularioRespuesta.valid) {
       const respuesta = this.formularioRespuesta.get('respuesta')?.value || '';
-      pregunta.respuestas.push({ 
-        usuario: this.currentUser, 
-        respuesta 
+      pregunta.respuestas.push({
+        usuario: this.currentUser,
+        respuesta,
+        destacada: false
       });
       this.formularioRespuesta.reset();
     } else {
       alert('Por favor, ingrese una respuesta.');
     }
+  }
+
+  destacarRespuesta(respuesta: { usuario: string; respuesta: string; destacada?: boolean }) {
+    respuesta.destacada = !respuesta.destacada;
   }
 
   volverAtras(): void {
