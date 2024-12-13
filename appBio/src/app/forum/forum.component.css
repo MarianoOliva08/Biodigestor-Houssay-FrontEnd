@@ -1,134 +1,169 @@
-body {
-  background-color: #ffffff; /* Fondo verde claro */
-  height: 100vh;
-  margin: 0;
-  color: #2e7d32; /* Texto en verde oscuro */
-  font-family: 'Roboto', sans-serif;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+/* Establecer la imagen de fondo */
+:host {
+  display: block;
+  height: 100vh; /* Asegura que ocupe toda la pantalla */
+  background-image: url('../assets/images/con_lamparita.jpeg'); /* Ruta relativa a la carpeta assets */
+  background-size: cover; /* Ajusta el tamaño de la imagen para cubrir todo el fondo */
+  background-position: center; /* Centra la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
+/* Estilo adicional para asegurar la legibilidad sobre el fondo */
 .container {
-  width: 90%;
-  max-width: 800px;
-  background-color: #7fee9b;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  padding: 30px;
-  margin: 20px auto;
-  animation: fadeIn 0.5s ease-in-out;
+  background-color: rgba(255, 255, 255, 0.8); /* Fondo semi-transparente para mejorar la visibilidad del texto */
+  padding: 20px;
+  border-radius: 10px;
+}
+
+
+/* Estilo general para el cuerpo de la página */
+body {
+  background-color: #ffffff; /* Fondo blanco */
+  height: 100vh; /* Altura del body igual al 100% de la altura de la ventana */
+  margin: 0; /* Elimina el margen predeterminado */
+  color: #2e7d32; /* Color del texto verde oscuro */
+  font-family: 'Roboto', sans-serif; /* Fuente Roboto para el texto */
+  display: flex; /* Utiliza flexbox para alinear los elementos */
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+}
+
+/* Estilo del contenedor principal */
+.container {
+  width: 90%; /* Ancho del contenedor es el 90% del body */
+  max-width: 800px; /* Máximo ancho del contenedor 800px */
+  background-color: #7fee9b; /* Fondo verde claro */
+  border-radius: 12px; /* Bordes redondeados */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15); /* Sombra suave alrededor del contenedor */
+  padding: 30px; /* Espaciado interno */
+  margin: 20px auto; /* Espaciado automático a los lados y 20px arriba/abajo */
+  animation: fadeIn 0.5s ease-in-out; /* Animación de aparición */
   position: relative;
   left: -25%; /* Mueve el contenedor hacia la izquierda */
 }
 
+/* Estilo del encabezado h1 */
 h1 {
-  color: #388e3c; /* Verde brillante */
-  text-align: center;
-  margin-bottom: 20px;
+  color: #388e3c; /* Color verde brillante */
+  text-align: center; /* Centra el texto */
+  margin-bottom: 20px; /* Margen debajo del encabezado */
 }
 
+/* Estilo del encabezado h2 */
 h2 {
-  color: #66bb6a;
-  border-bottom: 2px solid #388e3c;
-  padding-bottom: 5px;
+  color: #66bb6a; /* Color verde claro */
+  border-bottom: 2px solid #388e3c; /* Línea verde debajo */
+  padding-bottom: 5px; /* Espaciado debajo del texto */
 }
 
+/* Estilo del encabezado h3 */
 h3 {
-  color: #1b5e20;
-  margin-bottom: 5px;
+  color: #1b5e20; /* Verde muy oscuro */
+  margin-bottom: 5px; /* Margen debajo del texto */
 }
 
+/* Estilo de los botones principales */
 .btn-primary {
-  background-color: #388e3c;
-  border: none;
-  color: white;
-  padding: 10px 20px;
-  font-size: 16px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background-color: #388e3c; /* Fondo verde oscuro */
+  border: none; /* Sin borde */
+  color: white; /* Texto blanco */
+  padding: 10px 20px; /* Espaciado dentro del botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+  transition: all 0.3s ease; /* Efecto de transición en todas las propiedades */
 }
 
+/* Efecto al pasar el mouse sobre el botón principal */
 .btn-primary:hover {
-  background-color: #66bb6a;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  background-color: #66bb6a; /* Cambia el fondo a verde claro */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15); /* Sombra cuando el cursor pasa sobre el botón */
 }
 
+/* Estilo de los botones secundarios */
 .btn-secondary {
-  background-color: #4caf50;
-  border: none;
-  color: rgb(255, 255, 255);
-  padding: 8px 18px;
-  font-size: 14px;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: all 0.3s ease;
+  background-color: #4caf50; /* Fondo verde */
+  border: none; /* Sin borde */
+  color: rgb(255, 255, 255); /* Texto blanco */
+  padding: 8px 18px; /* Espaciado dentro del botón */
+  font-size: 14px; /* Tamaño de la fuente */
+  border-radius: 5px; /* Bordes redondeados */
+  cursor: pointer; /* Cambia el cursor a mano al pasar sobre el botón */
+  transition: all 0.3s ease; /* Efecto de transición en todas las propiedades */
 }
 
+/* Efecto al pasar el mouse sobre el botón secundario */
 .btn-secondary:hover {
-  background-color: #81c784;
+  background-color: #81c784; /* Cambia el fondo a un verde más claro */
 }
 
+/* Estilo de los campos de formulario */
 .form-control {
-  border: 1px solid #a5d6a7;
-  border-radius: 6px;
-  padding: 8px;
-  width: 100%;
-  font-size: 14px;
-  margin-bottom: 10px;
-  transition: border-color 0.3s;
+  border: 1px solid #a5d6a7; /* Borde verde claro */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 8px; /* Espaciado interno */
+  width: 100%; /* Ancho del 100% */
+  font-size: 14px; /* Tamaño de la fuente */
+  margin-bottom: 10px; /* Margen debajo del campo */
+  transition: border-color 0.3s; /* Transición suave en el borde al enfocarse */
 }
 
+/* Efecto cuando el campo de formulario tiene el foco */
 .form-control:focus {
-  border-color: #388e3c;
-  box-shadow: 0 0 8px rgba(56, 142, 60, 0.3);
-  outline: none;
+  border-color: #388e3c; /* Cambia el borde a verde oscuro */
+  box-shadow: 0 0 8px rgba(56, 142, 60, 0.3); /* Sombra verde alrededor del campo */
+  outline: none; /* Elimina el contorno predeterminado */
 }
 
+/* Estilo de las preguntas */
 .pregunta {
-  background-color: #a2f0a9;
-  border: 1px solid #638564;
-  border-radius: 6px;
-  padding: 15px;
-  margin-bottom: 15px;
+  background-color: #a2f0a9; /* Fondo verde muy claro */
+  border: 1px solid #638564; /* Borde verde más oscuro */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 15px; /* Espaciado interno */
+  margin-bottom: 15px; /* Margen debajo de cada pregunta */
 }
 
+/* Estilo de las respuestas */
 .respuesta {
-  background-color: #baeb82;
-  border: 1px solid #b1ee6c;
-  border-radius: 6px;
-  padding: 10px;
-  margin: 10px 0;
+  background-color: #4f9850; /* Fondo verde */
+  border: 1px solid #b1ee6c; /* Borde verde claro */
+  border-radius: 6px; /* Bordes redondeados */
+  padding: 10px; /* Espaciado interno */
+  margin: 10px 0; /* Margen de 10px arriba y abajo */
 }
 
+/* Definición de la animación de aparición */
 @keyframes fadeIn {
   from {
-    opacity: 0;
-    transform: translateY(20px);
+    opacity: 0; /* Comienza invisible */
+    transform: translateY(20px); /* Comienza desplazado 20px hacia abajo */
   }
   to {
-    opacity: 1;
-    transform: translateY(0);
+    opacity: 1; /* Se vuelve completamente visible */
+    transform: translateY(0); /* Regresa a su posición original */
   }
 }
 
+/* Estilo de los botones de estrella */
 .btn-estrella {
-  background: none;
-  border: none;
-  font-size: 18px;
-  color: #81c784;
-  cursor: pointer;
-  margin-left: 10px;
-  transition: color 0.3s;
+  background: none; /* Sin fondo */
+  border: none; /* Sin borde */
+  font-size: 18px; /* Tamaño de la fuente */
+  color: #81c784; /* Color verde claro */
+  cursor: pointer; /* Cambia el cursor a mano */
+  margin-left: 10px; /* Espaciado a la izquierda */
+  transition: color 0.3s; /* Transición suave del color */
 }
 
+/* Efecto al pasar el mouse sobre el botón de estrella */
 .btn-estrella:hover {
-  color: #388e3c;
+  color: #388e3c; /* Cambia el color a verde oscuro */
 }
 
+/* Estilo para el botón de estrella destacado */
 .btn-estrella.destacada {
-  color: #388e3c;
-  font-size: 20px;
-  transform: scale(1.2);
+  color: #388e3c; /* Color verde oscuro */
+  font-size: 20px; /* Aumenta el tamaño de la fuente */
+  transform: scale(1.2); /* Aumenta el tamaño del botón */
 }
