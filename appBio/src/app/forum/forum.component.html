@@ -21,7 +21,16 @@
       <p><strong>{{ pregunta.usuario }}:</strong> {{ pregunta.pregunta }}</p>
 
       <div *ngFor="let respuesta of pregunta.respuestas" class="respuesta">
-        <p><strong>{{ respuesta.usuario }}:</strong> {{ respuesta.respuesta }}</p>
+        <p>
+          <strong>{{ respuesta.usuario }}:</strong> {{ respuesta.respuesta }}
+          <button
+            *ngIf="isAdmin"
+            (click)="destacarRespuesta(respuesta)"
+            [class.destacada]="respuesta.destacada"
+            class="btn-estrella">
+            ⭐
+          </button>
+        </p>
       </div>
 
       <form [formGroup]="formularioRespuesta" (ngSubmit)="enviarRespuesta(pregunta)">
